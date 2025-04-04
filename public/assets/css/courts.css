@@ -1,0 +1,719 @@
+.courthero {
+    position: relative;
+    width: 100%;
+    height: 75vh; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end; /* Move elements to bottom */
+    padding-bottom: 30px; /* Space at bottom */
+}
+
+.courthero img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75vh; 
+    object-fit: cover;
+    z-index: -1;
+} 
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 30px 63px;
+    border-radius: 100px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    gap: 74px;
+    max-width: 1100px;
+    width: 113%;
+    position: absolute;
+    bottom: -55px;
+    left: 50%;
+    transform: translateX(-50%);    
+}
+
+.courthero-h2 {
+    color: white;
+    font-size: 60px;
+    font-weight: medium;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    z-index: 1;
+    margin-bottom: 200px; /* Moves text slightly up */
+}
+
+/* Input fields */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-right: 30px; /* Space for the separator */
+}
+
+/* Add a vertical bar between input fields */
+.input-group:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60%; /* Adjust height */
+    width: 2px; /* Bar thickness */
+    background-color: #dcdcdc; /* Light gray */
+}
+
+/* Labels */
+.input-group label {
+    font-weight: bold;
+    font-size: 24px; /* Slightly bigger */
+    margin-bottom: 6px;
+    color: black;
+}
+
+/* Input fields */
+.input-group input,
+.input-group select {
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 8px 0;
+    color: #333;
+}
+
+/* Search Button */
+.search-btn {
+    background: #006400;
+    color: white;
+    border: none;
+    padding: 15px 30px; /* Bigger button */
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.search-btn:hover {
+    background: #004d00;
+}
+
+.flatpickr-calendar {
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.parent-container {
+    overflow: visible !important;
+    position: relative; /* Ensures absolute children are placed properly */
+}
+
+.date-picker-wrapper {
+    position: relative;
+}
+
+.date-time-form {
+    position: absolute;
+    top: 50px; /* Adjust this value to place it just below "Pick a date and time" */
+    left: 20px; /* Adjust to align properly */
+    width: 350px; 
+    background: white;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Make sure it's visible when shown */
+.date-time-form.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ensure parent container allows absolute positioning */
+.courthero {
+    position: relative;
+}
+
+
+/* Styling for form inputs */
+.date-time-form .input-group {
+    margin-bottom: 12px;
+}
+
+.date-time-form label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.date-time-form input, 
+.date-time-form select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Time & Duration layout */
+.time-duration {
+    display: flex;
+    gap: 8px;
+}
+
+.time-duration select {
+    flex: 1;
+}
+.date-time-form form {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .date-time-form {
+        width: 100%;
+    }
+}
+
+
+/* Court Filter Panel */
+.court-container {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    gap: 50px; /* Add spacing between elements */
+}
+
+.filter-panel {
+    background: #f8f8f8;
+    padding: 40px;
+    border-radius: 0px 10px 10px 0px;
+    width: 100%;
+    max-width: 340px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    margin-top: 100px;
+    position: relative;
+}
+.filter-panel-h3 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #003A27;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Pushes text left, icon right */
+}
+
+.filter-panel-h3 i {
+    font-size: 22px;
+    color: #003A27;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-panel-h3 i:hover {
+    color: #006d3d;
+}
+
+.filter-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #003A27;
+    margin-bottom: 10px;
+    display: block;
+}
+.filter-group {
+    margin-bottom: 20px;
+}
+
+/* Checkbox Group */
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    accent-color: #008f4c;
+    cursor: pointer;
+}
+
+/* Input Field */
+.filter-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.filter-group input:focus {
+    border-color: #008f4c;
+    outline: none;
+    box-shadow: 0 0 6px rgba(0, 143, 76, 0.2);
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.apply-btn {
+    background: #008f4c;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 6px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.apply-btn:hover {
+    background: #006d3d;
+}
+
+.reset-btn {
+    background: #ff4d4d;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    width: 50px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.reset-btn:hover {
+    background: #cc0000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .filter-panel {
+        max-width: 100%;
+    }
+    .button-group {
+        flex-direction: column;
+    }
+    .reset-btn {
+        width: 100%;
+    }
+}
+
+.court-container{
+    padding-right: 7%;
+}
+
+.content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    width: 200px; /* Adjust width */
+    margin-top: 100px;
+    position: relative;
+    
+    border-bottom: 2px solid #003A27; /* Adjust color */
+    padding: 8px 0;
+    right: -84%; /* Moves it to the right */
+    top: 0;
+    margin-bottom: 20px;
+
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    flex: 1;
+    background: transparent;
+    font-size: 18px; /* Bigger text */
+    padding: 10px 40px 10px 10px; /* Space for the icon */
+}
+
+.search-icon {
+    color: #003A27;
+    font-size: 22px; /* Bigger icon */
+    position: absolute;
+    right: 10px; /* Aligns icon inside input */
+}
+
+
+
+.court-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.card-content .location{
+    text-align: center;
+
+}
+.card {
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .court-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .filter-panel {
+        width: 100%;
+    }
+    .court-cards {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* Wrapper styling */
+
+.court-details-wrapper {
+    width: 92%;
+    max-width: 2000px;
+    min-height: 54vh;
+    margin: 80px auto;  /* Ensures equal margin on left and right */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.breadcrumb {
+    position: absolute;
+    top: 100px;
+    left: 4%;
+    font-size: 20px;
+    color: #555;
+    padding: 24px;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: green;
+}
+
+.breadcrumb span {
+    color: darkgreen;
+    font-weight: bold;
+}
+
+/* Court details container */
+.courtdetails-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    margin-top: 84px;
+    gap: 20px;
+}
+
+.court-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 60%;
+    height: 80%;
+    overflow: hidden; 
+}
+
+.court-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 10px;
+}
+/* Zoom button styling */
+.zoom-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(2, 161, 2, 0.9);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.zoom-button:hover {
+    background: rgba(1, 130, 1, 0.9);
+}
+
+.court-image img {
+    transition: transform 0.4s ease-in-out;  /* Smooth transition */
+}
+
+.zoomed {
+    transform: scale(1.3); /* Enlarges the image smoothly */
+}
+
+.court-info {
+    flex: 1.2;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+    border-radius: 12px;
+}
+
+.court-title, .location, .Description, .court-specs, .time-selection, .disclaimer, .court-info-h2, .court-info-p {
+    text-align: left;
+}
+
+.time-selection {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.custom-input {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: white;
+    border-radius: 10px;
+    padding: 8px;
+    gap: 12px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.custom-input button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.custom-input button:hover {
+    background: #218838;
+}
+
+.custom-input input {
+    width: 70px;
+    text-align: center;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.disclaimer {
+    font-size: 14px;
+    color: gray;
+}
+/* 
+.book-now-btn {
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.book-now-btn:hover {
+    background-color: #218838;
+} */
+
+/* details */
+/* .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+} */
+.tabs {
+    display: flex;
+    justify-content: left;
+    gap: 14px;
+    padding: 80px;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    background: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: background 0.3s;
+}
+
+.tab-btn:hover,
+.tab-btn.active {
+    background: #218838;
+}
+
+/* Tab Content Styling */
+.tab-content {
+    width: 1670px; /* Ensuring fixed width */
+    margin: 0 auto 80px 80px; /* Simplified margin */
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+/* Feedback Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Star Rating Styling */
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+    gap: 5px;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    font-size: 24px;
+    color: #ddd;
+    cursor: pointer;
+}
+
+.rating input:checked ~ label {
+    color: #ffcc00;
+}
+
+button {
+    padding: 10px 15px;
+    background: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #218838;
+}
+
+/* Ensure disabled button styling is clear */
+#bookNowBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+/* .timeslot {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .timeslot.selected {
+    background: #4CAF50;
+    color: white;
+  } */
